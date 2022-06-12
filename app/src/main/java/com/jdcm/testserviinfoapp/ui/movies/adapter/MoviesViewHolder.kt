@@ -28,7 +28,6 @@ class MoviesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         binding.movieTitleTv.text =   movieInfo.title
         binding.qualificationTv.text ="${context.getString(R.string.movie_qualification_tv)} ${movieInfo.voteAverage}"
-        binding.dateTv.text = movieInfo.releaseDate
         binding.agedRatedTv.text = if (movieInfo.isPlus18) {
             context.getString(R.string.plus_18_txt)
         } else {

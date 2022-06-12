@@ -20,4 +20,12 @@
         android:focusable="true"
         app:backgroundTint="#7586E4"
         app:srcCompat="@drawable/ic_baseline_nights_stay_24" />
+
+    <fragment
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
 </FrameLayout>

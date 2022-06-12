@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:background="@drawable/background_cards"
     android:layout_marginBottom="2dp">
 
         <ImageView
@@ -10,6 +11,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_video_settings"
             android:contentDescription="@string/movie_poster_cd" />
 
@@ -35,15 +37,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/movie_qualification_tv"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
-
-
-                <TextView
-                    android:id="@+id/date_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/release_date_txt"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 

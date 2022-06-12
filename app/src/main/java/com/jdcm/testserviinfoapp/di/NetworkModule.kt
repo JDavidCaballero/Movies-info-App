@@ -1,6 +1,7 @@
 package com.jdcm.testserviinfoapp.di
 
 import com.jdcm.testserviinfoapp.ui.movies.data.network.MoviesApiClient
+import com.jdcm.testserviinfoapp.ui.movies.ui.data.network.MovieDetailApiClient
 import com.jdcm.testserviinfoapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -39,6 +40,12 @@ object NetworkModule {
     @Provides
     fun provideMoviesApiClient(retrofit: Retrofit): MoviesApiClient {
         return retrofit.create(MoviesApiClient::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideMovieDetailApiClient(retrofit: Retrofit): MovieDetailApiClient {
+        return retrofit.create(MovieDetailApiClient::class.java)
     }
 
 }

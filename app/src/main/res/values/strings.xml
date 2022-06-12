@@ -1,17 +1,32 @@
 <resources>
     <string name="app_name">TestServiInfoApp</string>
+    //Basic Info of cards
     <string name="search_by_movie_name">Buscar Nombre de pelicula</string>
     <string name="movie_poster_cd">movie poster</string>
     <string name="movie_title_txt">Titulo Pelicula</string>
     <string name="movie_qualification_tv">Calificación:</string>
-    <string name="release_date_txt">Fecha de salida</string>
+    <string name="release_date_txt">Fecha de salida: </string>
     <string name="age_rating_txt">Clasificación:</string>
     <string name="view_detail_txt">Ver detalle</string>
     <string name="plus_18_txt">+18</string>
     <string name="for_everyone_txt">Para todos los publicos</string>
-    <string name="No_data_txt">No se encontraron datos,\n intentelo de nuevo mas tarde</string>
-    <string name="no_avalaible_information">No hay información disponible</string>
+    <string name="status_txt">Estado:</string>
+    <string name="original_language_txt">Lenguage original: </string>
+    <string name="total_revenue_txt">Total recaudado:</string>
+    <string name="budget_txt">Presupuesto inicial:</string>
+    <string name="return_txt">Volver</string>
+    <string name="synopsis_txt">Sinopsis: </string>
+    <string name="resume_txt">Resumen: </string>
+    <string name="dollar_sign">$</string>
+    <string name="dollars_text">Dolares</string>
+
+    //Empty layout
+    <string name="No_data_txt">No se encontraron datos,\n Revise su conexión a internet</string>
+    <string name="no_available_information">No hay información disponible</string>
+
+    //Icons
     <string name="night_mode">Modo oscuro</string>
     <string name="night_fab">Night fab</string>
+    <string name="retry_txt">Reintentar</string>
 
 </resources>

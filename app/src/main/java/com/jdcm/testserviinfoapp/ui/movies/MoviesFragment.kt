@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jdcm.testserviinfoapp.R
@@ -37,7 +39,7 @@ class MoviesFragment : Fragment() {
     private var moviesListBackup = mutableListOf<Movies?>()
     private var moviesListFiltered = mutableListOf<Movies?>()
     private var adapter: MoviesAdapter? = null
-
+    private val navController by lazy { Navigation.findNavController(binding.root) }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,14 +47,15 @@ class MoviesFragment : Fragment() {
 
         binding = MoviesFragmentBinding.inflate(inflater, container, false)
         initMoviesViewModel()
-        //init the data filter
+
+        binding.noDataLayout.btnNoContent.setOnClickListener {
+            //If theres no connection this button will go up and the user can retry the call to the Api
+            viewModel.onCreate(APIKEY)
+        }
 
         return binding.root
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
 
     private fun searchMoviesTitle() {
 
@@ -107,6 +110,7 @@ class MoviesFragment : Fragment() {
         viewModel.moviesModel.observe(viewLifecycleOwner) { MoviesApi ->
 
             if (!MoviesApi.isNullOrEmpty()) {
+                binding.noDataLayout.root.visibility = View.GONE
 
                 fillMoviesInfo(MoviesApi.toMutableList())
                 initRecyclerView()
@@ -116,8 +120,8 @@ class MoviesFragment : Fragment() {
                 binding.noDataLayout.root.visibility = View.VISIBLE
                 Toast.makeText(
                     requireContext(),
-                    getString(R.string.no_avalaible_information),
-                    Toast.LENGTH_LONG
+                    getString(R.string.no_available_information),
+                    Toast.LENGTH_SHORT
                 ).show()
             }
 
@@ -141,10 +145,19 @@ class MoviesFragment : Fragment() {
             binding.moviesRecyclerView,
             object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View?, position: Int) {
+
+                    val action: NavDirections =
+                        MoviesFragmentDirections.actionMoviesFragmentToMovieDetailFragment(
+                            moviesListBackup[position]!!.poster_path,
+                            moviesListBackup[position]!!.movieId,
+                        )
+
+                    navController.navigate(action)
+
+
                 }
 
                 override fun onLongItemClick(view: View?, position: Int) {}
-
             }
 
         ))
