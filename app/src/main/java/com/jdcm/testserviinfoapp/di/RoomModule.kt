@@ -10,7 +10,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-
+/*This will create a DB for the list of movies for the first activity that gonna go out if are filled and the user doesn't have internet connection */
 @Module
 @InstallIn(SingletonComponent::class)
 object RoomModule {

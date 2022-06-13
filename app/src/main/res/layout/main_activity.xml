@@ -18,7 +18,7 @@
         android:clickable="true"
         android:contentDescription="@string/night_fab"
         android:focusable="true"
-        app:backgroundTint="#7586E4"
+        app:backgroundTint="@color/color_app_theme"
         app:srcCompat="@drawable/ic_baseline_nights_stay_24" />
 
     <fragment

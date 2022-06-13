@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">TestServiInfoApp</string>
+
+
     //Basic Info of cards
     <string name="search_by_movie_name">Buscar Nombre de pelicula</string>
     <string name="movie_poster_cd">movie poster</string>

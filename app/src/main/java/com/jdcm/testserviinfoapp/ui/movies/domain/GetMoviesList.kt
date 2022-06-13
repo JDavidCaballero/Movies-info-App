@@ -6,18 +6,18 @@ import com.jdcm.testserviinfoapp.ui.movies.domain.model.Movies
 import javax.inject.Inject
 
 class GetMoviesList @Inject constructor(
-    private val repository : MoviesRepository
+    private val repository: MoviesRepository
 ) {
 
-    suspend operator fun invoke(apiKey : String):List<Movies?> {
+    suspend operator fun invoke(apiKey: String): List<Movies?> {
 
         val moviesInfo = repository.getMoviesFromApi(apiKey)
-
-        return if(!moviesInfo.isNullOrEmpty()){
+        //Switch between Api and DB depending of the response of the api
+        return if (!moviesInfo.isNullOrEmpty()) {
             repository.clearMoviesInfo()
             repository.insertMoviesInfo(moviesInfo.map { it!!.toDataBase() })
             moviesInfo
-        }else{
+        } else {
             repository.getAllMoviesInfoFromDataBase()
         }
 

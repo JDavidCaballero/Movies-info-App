@@ -86,7 +86,9 @@ class MovieDetailFragment : Fragment() {
             moviesApi.backdropPath,
             MovieDetailFragmentArgs.fromBundle(requireArguments()).posterPhoto
         )
-        //Set all textView Text
+        /*
+        /Set all textView Text
+         */
         val textCategory = "${getText(R.string.age_rating_txt)} ${
             if (moviesApi.isPlus18) {
                 getString(R.string.plus_18_txt)
@@ -101,7 +103,9 @@ class MovieDetailFragment : Fragment() {
         val textReleaseDate = "${getString(R.string.release_date_txt)} ${moviesApi.releaseDate} "
         val textResume = "${getString(R.string.synopsis_txt)} ${moviesApi.tagline} "
         val textOverview = "${getString(R.string.resume_txt)} ${moviesApi.overview}"
-        //Sett info in textViews
+        /*
+        *Sett info in textViews
+        */
         binding.categoryTv.text = textCategory
         binding.rateTv.text = textRate
         binding.statusTv.text = textStatus
@@ -115,8 +119,8 @@ class MovieDetailFragment : Fragment() {
     }
 
     private fun TextView.moneyConverter(value: Int, isBudget : Boolean) {
-        var currencyText = if (isBudget){
-
+        //Set the currency format to the integers
+        val currencyText = if (isBudget){
             "${getString(R.string.budget_txt) }   ${getString(R.string.dollar_sign)} ${
                 NumberFormat.getNumberInstance(Locale.US).format(value)
             } ${getString(R.string.dollars_text)}"

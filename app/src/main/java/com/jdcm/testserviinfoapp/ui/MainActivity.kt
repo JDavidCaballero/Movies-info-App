@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
+        //This will sett the floating button to switch to the night/light mode of the app if the user taps in it
+
         val floating = this.findViewById<FloatingActionButton>(R.id.floatingActionButton)
 
         when (this.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {

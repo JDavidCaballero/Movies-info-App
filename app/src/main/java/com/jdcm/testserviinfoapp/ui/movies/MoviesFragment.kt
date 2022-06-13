@@ -98,6 +98,7 @@ class MoviesFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun updateAdapter(data: Collection<Movies?>) {
+        //To update the original list that will be displayed on screen with adapter
         moviesListBackup.clear()
         moviesListBackup.addAll(data)
         adapter!!.notifyDataSetChanged()
@@ -145,16 +146,12 @@ class MoviesFragment : Fragment() {
             binding.moviesRecyclerView,
             object : RecyclerItemClickListener.OnItemClickListener {
                 override fun onItemClick(view: View?, position: Int) {
-
                     val action: NavDirections =
                         MoviesFragmentDirections.actionMoviesFragmentToMovieDetailFragment(
                             moviesListBackup[position]!!.poster_path,
                             moviesListBackup[position]!!.movieId,
                         )
-
                     navController.navigate(action)
-
-
                 }
 
                 override fun onLongItemClick(view: View?, position: Int) {}

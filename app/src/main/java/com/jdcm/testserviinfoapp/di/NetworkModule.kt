@@ -13,7 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
-
+/*This will Provide a single instance of retrofit for each one of the Apis we want to consume*/
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {

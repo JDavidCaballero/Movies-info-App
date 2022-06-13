@@ -3,7 +3,7 @@ package com.jdcm.testserviinfoapp.ui.movies.domain.model
 import com.jdcm.testserviinfoapp.ui.movies.data.database.entities.MoviesListEntity
 import com.jdcm.testserviinfoapp.ui.movies.data.model.MoviesListInfo
 
-
+/* This class is the generic class of the data for code to understand that the data of the API and de DB will be the same independent of his type */
 data class Movies(
 
     var movieId: Int,

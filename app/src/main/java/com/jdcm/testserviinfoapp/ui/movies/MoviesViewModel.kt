@@ -15,15 +15,15 @@ class MoviesViewModel @Inject constructor(private val getMoviesModel: GetMoviesL
     val moviesModel = MutableLiveData<List<Movies?>>()
     val isLoading = MutableLiveData<Boolean>()
 
-    fun onCreate(apiKey : String) {
+    fun onCreate(apiKey: String) {
         viewModelScope.launch {
             isLoading.postValue(true)
             val result = getMoviesModel(apiKey)
 
-            if (result != null) {
-                moviesModel.postValue(result)
-                isLoading.postValue(false)
-            }
+            //Putting the values for the main fragment
+            moviesModel.postValue(result)
+            isLoading.postValue(false)
+
         }
 
     }
